@@ -64,7 +64,6 @@ specifiers:
   rollup-plugin-add-shebang: ^0.3.1
   rollup-plugin-cleaner: ^1.0.0
   rollup-plugin-copy: ^3.4.0
-  svg-parser: ^2.0.4
   svgo: ^3.0.2
   svgson: ^5.2.1
   terser: ^5.16.5
@@ -101,7 +100,6 @@ dependencies:
   eslint-plugin-redos: 4.5.0-beta.2_eslint@8.35.0
   eslint-plugin-security: 1.7.1
   eslint-plugin-sort-destructure-keys: 1.5.0_eslint@8.35.0
-  svg-parser: 2.0.4
   svgo: 3.0.2
   svgson: 5.2.1
 
@@ -7680,10 +7678,6 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
-
-  /svg-parser/2.0.4:
-    resolution: {integrity: sha512-e4hG1hRwoOdRb37cIMSgzNsxyzKfayW6VOflrwvR+/bzrkyxY/31WkbgnQpgtrNp1SdpJvpUAGTa/ZoiPNDuRQ==}
-    dev: false
 
   /svgo/3.0.2:
     resolution: {integrity: sha512-Z706C1U2pb1+JGP48fbazf3KxHrWOsLme6Rv7imFBn5EnuanDW1GPaA/P1/dvObE670JDePC3mnj0k0B7P0jjQ==}
