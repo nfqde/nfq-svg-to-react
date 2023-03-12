@@ -2,7 +2,9 @@
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
+import shebang from 'rollup-plugin-add-shebang';
 import cleaner from 'rollup-plugin-cleaner';
+import copy from 'rollup-plugin-copy';
 
 // eslint-disable-next-line import/extensions
 import pkg from './package.json' assert { type: "json" };
@@ -15,23 +17,13 @@ export default [
             ...pkg.peerDependencies,
             ...pkg.externals
         } || {})],
-        input: 'src/index.tsx',
+        input: 'src/index.ts',
         output: [
             {
-                exports: 'named',
-                file: pkg.exports['.'].require,
+                file: pkg.bin.svgToReact,
                 format: 'cjs',
                 globals,
                 name: pkg.name,
-                sourcemap: true
-            },
-            {
-                dir: './dist/esm/',
-                exports: 'named',
-                format: 'es',
-                globals,
-                name: pkg.name,
-                preserveModules: true,
                 sourcemap: true
             }
         ],
@@ -41,8 +33,16 @@ export default [
             commonjs({include: ['node_modules/**']}),
             babel({
                 babelHelpers: 'bundled',
-                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
-                targets: {browsers: pkg.browserslist}
+                extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']
+            }),
+            shebang({include: pkg.bin.svgToReact}),
+            copy({
+                targets: [
+                    {
+                        dest: 'dist/templates',
+                        src: 'src/templates/**/*'
+                    }
+                ]
             })
         ]
     }

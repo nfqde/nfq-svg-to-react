@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import coverage from '@cypress/code-coverage/task';
 import {defineConfig} from 'cypress';
+import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
 
 import type {Configuration} from 'webpack';
 
@@ -28,6 +29,7 @@ export default defineConfig({
                             }
                         ]
                     },
+                    plugins: [new NodePolyfillPlugin()],
                     resolve: {
                         extensions: [
                             '.js',
@@ -40,7 +42,8 @@ export default defineConfig({
                             '.jpg',
                             '.json',
                             '.svg'
-                        ]
+                        ],
+                        fallback: {fs: false}
                     },
                     target: 'web'
                 };
@@ -48,10 +51,7 @@ export default defineConfig({
                 return config;
             }
         },
-        env: {
-            codeCoverage: {exclude: ['cypress/**/*.*']},
-            NODE_ENV: 'test'
-        },
+        env: {NODE_ENV: 'test'},
         reporter: 'mochawesome',
         reporterOptions: {
             html: false,
