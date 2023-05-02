@@ -23,6 +23,7 @@ export default [
                 file: pkg.bin.svgToReact,
                 format: 'cjs',
                 globals,
+                interop: 'auto',
                 name: pkg.name,
                 sourcemap: true
             }
