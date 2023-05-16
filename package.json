@@ -2,7 +2,7 @@
   "name": "@nfq/svg-to-react",
   "description": "Package to batch create react components from svg images",
   "author": ".NFQ | Christoph Kruppe",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "keywords": [],
   "license": "MIT",
   "repository": {
