@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.5](https://github.com/nfqde/nfq-svg-to-react/compare/v2.0.4...v2.0.5) (2023-05-16)
+
+
+### Bug Fixes
+
+* **Colors:** Generate color props as optional props ([#6](https://github.com/nfqde/nfq-svg-to-react/issues/6)) ([b197116](https://github.com/nfqde/nfq-svg-to-react/commit/b197116529d491dcc4ef18f8382c2b2533058cc6))
+
 ### [2.0.4](https://github.com/nfqde/nfq-svg-to-react/compare/v2.0.3...v2.0.4) (2023-05-02)
 
 
