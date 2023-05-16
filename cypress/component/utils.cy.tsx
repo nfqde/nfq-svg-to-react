@@ -252,7 +252,7 @@ describe('utils.ts', () => {
             const colors = parseForColors(await parse(svg));
 
             expect(generateColorTypes(colors))
-                .to.eq('\n    color1: string;\n    color2: string;');
+                .to.eq('\n    color1?: string;\n    color2?: string;');
         });
 
         it('Generates empty types if no colors are present.', async () => {

@@ -218,7 +218,7 @@ export const generateColorTypes = (colors: Set<string>) => {
     let types = '';
 
     Array.from(colors).forEach((color, index) => {
-        types += `\n    color${index + 1}: string;`;
+        types += `\n    color${index + 1}?: string;`;
     });
 
     return types;
