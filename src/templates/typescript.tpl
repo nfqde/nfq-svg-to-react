@@ -12,8 +12,6 @@ interface {{%name%}}Props {
     height?: number | string;
     /**
      * The `testId` property represents a unique identifier, usually in the form of a string, assigned to a component for testing purposes.
-     * It is a required property and must be provided when an object of type `ComponentProps` is expected.
-     * This property is crucial for uniquely identifying components during testing, allowing for more accurate and reliable tests.
      */
     testId?: string;
     /**
@@ -61,6 +59,6 @@ export const {{%name%}} = React.forwardRef<SVGSVGElement, {{%name%}}Props>((prop
 {{%name%}}.defaultProps = {
     className: '',{{%colorDefaultProps%}}
     height: {{%height%}},
-    testId: '',
+    testId: '{{%name%}}',
     width: {{%width%}}
 };
