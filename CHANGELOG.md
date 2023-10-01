@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/nfqde/nfq-svg-to-react/compare/v2.0.7...v2.1.0) (2023-10-01)
+
+
+### Features
+
+* **Updater:** Add auto update and better documented template ([#9](https://github.com/nfqde/nfq-svg-to-react/issues/9)) ([f6eb2f2](https://github.com/nfqde/nfq-svg-to-react/commit/f6eb2f228e4212729c5a53d57835b9b94faf18e1))
+
 ### [2.0.7](https://github.com/nfqde/nfq-svg-to-react/compare/v2.0.6...v2.0.7) (2023-08-22)
 
 
