@@ -4,6 +4,7 @@ import {
     generateColorDestructString,
     generateColorJsdocType,
     generateColorPropTypes,
+    generateColorsDocs,
     generateColorsDocsLegacy,
     generateColorTypes,
     getComponentName,
@@ -92,6 +93,10 @@ export const getTemplateData = (template: string, {file, HAST, svg}: DataOptions
                 {
                     replace: generateColorDestructString(colors),
                     search: /\{\{%colors%\}\}/gu
+                },
+                {
+                    replace: generateColorsDocs(colors),
+                    search: /\{\{%colorDocs%\}\}/gu
                 },
                 {
                     replace: generateColorTypes(colors),

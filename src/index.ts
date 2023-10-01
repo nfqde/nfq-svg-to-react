@@ -1,9 +1,15 @@
+import AutoUpdater from 'cli-autoupdate';
 import commandLineArgs from 'command-line-args';
 import commandLineUsage from 'command-line-usage';
+
+// eslint-disable-next-line import/extensions
+import pkg from '../package.json' assert { type: 'json' };
 
 import {convertSvgToReact} from './convertSvgToReact';
 
 import type {OptionDefinition, Section} from 'command-line-usage';
+
+const updater = new AutoUpdater(pkg);
 
 const optionsList: OptionDefinition[] = [
     {
@@ -48,19 +54,21 @@ const definition: Section[] = [
     }
 ];
 
-const options = commandLineArgs(optionsList);
+updater.on('finish', () => {
+    const options = commandLineArgs(optionsList);
 
-if (options.help) {
-    const help = commandLineUsage(definition);
+    if (options.help) {
+        const help = commandLineUsage(definition);
 
-    process.stdout.write(help);
-    process.exit(0);
-} else if (!options.out || !options.src || !options.template) {
-    process.stderr.write('Missing required options!');
-    const help = commandLineUsage(definition);
+        process.stdout.write(help);
+        process.exit(0);
+    } else if (!options.out || !options.src || !options.template) {
+        process.stderr.write('Missing required options!');
+        const help = commandLineUsage(definition);
 
-    process.stdout.write(help);
-    process.exit(1);
-} else {
-    void convertSvgToReact(options);
-}
+        process.stdout.write(help);
+        process.exit(1);
+    } else {
+        void convertSvgToReact(options);
+    }
+});

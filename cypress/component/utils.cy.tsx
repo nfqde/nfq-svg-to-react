@@ -7,6 +7,7 @@ import {
     generateColorDestructString,
     generateColorJsdocType,
     generateColorPropTypes,
+    generateColorsDocs,
     generateColorsDocsLegacy,
     generateColorTypes,
     getComponentName,
@@ -242,6 +243,28 @@ describe('utils.ts', () => {
         });
     });
 
+    context('generateColorsDocs', () => {
+        before(() => {
+            expect(generateColorsDocs, 'generateColorsDocs').to.be.a('function');
+        });
+
+        it('Generates the Color docs.', async () => {
+            const svg = '<svg height="15" viewbox="0 0 15 0"><path fill="#000000" stroke="#FF0000" d="M12" /></svg>';
+            const colors = parseForColors(await parse(svg));
+
+            expect(generateColorsDocs(colors))
+                .to.eq('\n * @param props.color1    A string representing the color to be applied to the Icon.\n * @param props.color2    A string representing the color to be applied to the Icon.');
+        });
+
+        it('Generates empty docs if no colors are present.', async () => {
+            const svg = '<svg height="15" viewbox="0 0 15 0"><path d="M12" /></svg>';
+            const colors = parseForColors(await parse(svg));
+
+            expect(generateColorsDocs(colors))
+                .to.eq('');
+        });
+    });
+
     context('generateColorTypes', () => {
         before(() => {
             expect(generateColorTypes, 'generateColorTypes').to.be.a('function');
@@ -252,7 +275,7 @@ describe('utils.ts', () => {
             const colors = parseForColors(await parse(svg));
 
             expect(generateColorTypes(colors))
-                .to.eq('\n    color1?: string;\n    color2?: string;');
+                .to.eq('\n    /**\n     * A string representing the color to be applied.\n     */\n    color1?: string;\n    /**\n     * A string representing the color to be applied.\n     */\n    color2?: string;');
         });
 
         it('Generates empty types if no colors are present.', async () => {

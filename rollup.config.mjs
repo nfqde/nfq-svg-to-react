@@ -1,13 +1,14 @@
 /* eslint-disable array-func/prefer-array-from */
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import shebang from 'rollup-plugin-add-shebang';
 import cleaner from 'rollup-plugin-cleaner';
 import copy from 'rollup-plugin-copy';
 
 // eslint-disable-next-line import/extensions
-import pkg from './package.json' assert { type: "json" };
+import pkg from './package.json' assert { type: 'json' };
 
 const globals = {};
 
@@ -31,6 +32,7 @@ export default [
         plugins: [
             cleaner({targets: ['./dist/']}),
             resolve({extensions: ['.js', '.jsx', '.json', '.ts', '.tsx']}),
+            json(),
             commonjs({include: ['node_modules/**']}),
             babel({
                 babelHelpers: 'bundled',

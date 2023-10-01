@@ -27,7 +27,7 @@ describe('templateData.ts', () => {
             });
 
             expect(templateData).to.be.an('array');
-            expect(templateData).to.have.lengthOf(7);
+            expect(templateData).to.have.lengthOf(8);
         });
 
         it('Should get the right data length if jsdoc-typescript', async () => {
@@ -93,7 +93,9 @@ describe('templateData.ts', () => {
             expect(templateData[5]).to.be.an('object');
             expect(templateData[5].search).to.be.deep.eq(/\{\{%colors%\}\}/gu);
             expect(templateData[6]).to.be.an('object');
-            expect(templateData[6].search).to.be.deep.eq(/\{\{%colorTypes%\}\}/gu);
+            expect(templateData[6].search).to.be.deep.eq(/\{\{%colorDocs%\}\}/gu);
+            expect(templateData[7]).to.be.an('object');
+            expect(templateData[7].search).to.be.deep.eq(/\{\{%colorTypes%\}\}/gu);
         });
 
         it('Should have the right regexes jsdoc-typescript', async () => {

@@ -208,6 +208,28 @@ export const generateColorJsdocType = (colors: Set<string>) => {
     return jsdocType;
 };
 
+
+/**
+ * Generate the color docs.
+ *
+ * @param colors The colors.
+ * @returns The color docs.
+ */
+export const generateColorsDocs = (colors: Set<string>) => {
+    let docs = '';
+
+    Array.from(colors).forEach((color, index) => {
+        // eslint-disable-next-line @nfq/no-magic-numbers
+        if (index + 1 > 9) {
+            docs += `\n * @param props.color${index + 1}   A string representing the color to be applied to the Icon.`;
+        } else {
+            docs += `\n * @param props.color${index + 1}    A string representing the color to be applied to the Icon.`;
+        }
+    });
+
+    return docs;
+};
+
 /**
  * Generate the color types.
  *
@@ -218,7 +240,7 @@ export const generateColorTypes = (colors: Set<string>) => {
     let types = '';
 
     Array.from(colors).forEach((color, index) => {
-        types += `\n    color${index + 1}?: string;`;
+        types += `\n    /**\n     * A string representing the color to be applied.\n     */\n    color${index + 1}?: string;`;
     });
 
     return types;
