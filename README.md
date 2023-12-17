@@ -1,15 +1,14 @@
 <div id="top"></div>
 
-# Project name
+# @nfq/svg-to-react
 
-[![EsLint](https://github.com/nfqde/nfq-npm-modules-template/actions/workflows/eslint.yml/badge.svg)](https://github.com/nfqde/nfq-npm-modules-template/actions/workflows/eslint.yml)
+[![EsLint](https://github.com/nfqde/nfq-svg-to-react/actions/workflows/eslint.yml/badge.svg)](https://github.com/nfqde/nfq-svg-to-react/actions/workflows/eslint.yml)
 
 ---
 
 1. [Description](#description)
 2. [Getting started](#getting-started)
     1. [Installation](#installation)
-    2. [PeerDependencies](#peerdependencies)
 3. [Usage](#usage)
 4. [Props](#props)
 5. [Support](#support)
@@ -18,7 +17,8 @@
 
 ## Description: [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Labore adipisicing nostrud nostrud consequat in excepteur ullamco veniam Lorem nostrud. Do laborum laboris nulla quis duis dolor est non pariatur irure esse occaecat. Id anim anim sint sunt nulla officia velit occaecat enim consectetur. Dolore occaecat ex ad occaecat consequat. Nulla anim nostrud excepteur nulla commodo dolor aute duis veniam culpa sit quis. Irure et irure enim cillum irure eiusmod nostrud exercitation esse ut minim.
+This project, `@nfq/svg-to-react`, is a powerful tool that allows you to convert SVG images into React components. It's built with Node.js and TypeScript. The main functionality of this package is to take a directory or a file of SVG images as input, and output a directory of React components. This is particularly useful for projects where SVG images are used extensively and need to be managed efficiently.
+The package provides a command line interface for easy use. It also supports different templates for generation, including 'typescript', 'jsdoc-typescript', and 'legacy'. This allows you to choose the format that best suits your project's needs.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -26,38 +26,34 @@ Labore adipisicing nostrud nostrud consequat in excepteur ullamco veniam Lorem n
 
 ## Getting started
 
-To setup the project locally follow the next steps:
+To the package follow the next steps:
 
 ### Installation
 
 To install the package run
 ```sh
-npm install <Project name>
+npm install -g <Project name>
 ```
 if you are on yarn
 ```sh
-yarn add <Project name>
+yarn add --global <Project name>
 ```
 or on pnpm
 ```sh
-pnpm install <Project name>
+pnpm install -g <Project name>
 ```
-   
-### PeerDependencies:
-
-The following PeerDependencies are needed so the component does work:
-
-- \<dependency> >= \<version>
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 ---
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+You can use this package to convert SVG files to React components. You can specify the input directory or file, the output directory, and the template to use for generation. The available templates are 'typescript', 'jsdoc-typescript', and 'legacy'.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+For example, to convert all SVG files in the `icons` directory and output them as TypeScript React components in the `components` directory, you would use the following command:
+
+```sh
+svgToReact --src ./icons --out ./components --template typescript
+```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -65,7 +61,11 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Props
 
-Use this space for prop tables if you make an react module or for params if you create js module. Or use it for arguments if you create an cli.
+This package provides a command line interface with the following options:
+
+- `src`: The input directory or file.
+- `out`: The output directory.
+- `template`: The generation type. It has to be one of the following options: ['typescript', 'jsdoc-typescript', 'legacy'].
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
