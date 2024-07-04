@@ -37,7 +37,7 @@ interface {{%name%}}Props {
  * ```
  */
 export const {{%name%}} = React.forwardRef<SVGSVGElement, {{%name%}}Props>((props, ref) => {
-    const {className = '', {{%colors%}}height = {{%height%}}, testId = '{{%name%}}', width = {{%width%}}} = props;
+    const {className, {{%colors%}}height, testId, width} = props;
 
     return (
         <svg
@@ -56,3 +56,9 @@ export const {{%name%}} = React.forwardRef<SVGSVGElement, {{%name%}}Props>((prop
 });
 
 {{%name%}}.displayName = '{{%name%}}';
+{{%name%}}.defaultProps = {
+    className: '',{{%colorDefaultProps%}}
+    height: {{%height%}},
+    testId: '{{%name%}}',
+    width: {{%width%}}
+};

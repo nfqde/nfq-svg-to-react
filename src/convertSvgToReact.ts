@@ -11,7 +11,7 @@ import type {CommandLineOptions} from 'command-line-args';
 interface SvgToReactOptions extends CommandLineOptions {
     out?: string;
     src?: string;
-    template?: 'jsdoc-typescript' | 'legacy' | 'typescript';
+    template?: 'jsdoc-typescript' | 'legacy' | 'typescript-pre19' | 'typescript';
 }
 
 /**
@@ -88,10 +88,10 @@ const convertFile = async (file: string, out: string, template: string, template
     });
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
-    await writeFile(path.join(out, `${getComponentName(file)}.${templateType === 'typescript' ? 't' : 'j'}sx`), svgComponent);
+    await writeFile(path.join(out, `${getComponentName(file)}.${templateType.includes('typescript') ? 't' : 'j'}sx`), svgComponent);
 
     const eslint = new ESLint({fix: true});
-    const results = await eslint.lintFiles(path.join(out, `${getComponentName(file)}.${templateType === 'typescript' ? 't' : 'j'}sx`));
+    const results = await eslint.lintFiles(path.join(out, `${getComponentName(file)}.${templateType.includes('typescript') ? 't' : 'j'}sx`));
 
     await ESLint.outputFixes(results);
 };

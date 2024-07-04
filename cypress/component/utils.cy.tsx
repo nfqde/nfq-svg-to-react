@@ -5,6 +5,7 @@ import {parse} from 'svgson';
 import {
     generateColorDefaultProps,
     generateColorDestructString,
+    generateColorDestructStringPre19,
     generateColorJsdocType,
     generateColorPropTypes,
     generateColorsDocs,
@@ -209,7 +210,7 @@ describe('utils.ts', () => {
             const colors = parseForColors(await parse(svg));
 
             expect(generateColorDestructString(colors))
-                .to.eq('color1, color2, ');
+                .to.eq('color1 = \'#000000\', color2 = \'#FF0000\', ');
         });
 
         it('Generates empty string if no colors are present.', async () => {
@@ -217,6 +218,28 @@ describe('utils.ts', () => {
             const colors = parseForColors(await parse(svg));
 
             expect(generateColorDestructString(colors))
+                .to.eq('');
+        });
+    });
+
+    context('generateColorDestructStringPre19', () => {
+        before(() => {
+            expect(generateColorDestructStringPre19, 'generateColorDestructStringPre19').to.be.a('function');
+        });
+
+        it('Generates the Color destructuring props.', async () => {
+            const svg = '<svg height="15" viewbox="0 0 15 0"><path fill="#000000" stroke="#FF0000" d="M12" /></svg>';
+            const colors = parseForColors(await parse(svg));
+
+            expect(generateColorDestructStringPre19(colors))
+                .to.eq('color1, color2, ');
+        });
+
+        it('Generates empty string if no colors are present.', async () => {
+            const svg = '<svg height="15" viewbox="0 0 15 0"><path d="M12" /></svg>';
+            const colors = parseForColors(await parse(svg));
+
+            expect(generateColorDestructStringPre19(colors))
                 .to.eq('');
         });
     });
