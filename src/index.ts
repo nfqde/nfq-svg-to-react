@@ -22,7 +22,7 @@ const optionsList: OptionDefinition[] = [
         alias: 't',
         defaultValue: 'typescript',
         description: `The generation type has to be one of the following options
-        ['typescript', 'jsdoc-typescript', 'legacy'].`,
+        ['typescript', 'typescript-pre19', 'jsdoc-typescript', 'legacy'].`,
         name: 'template',
         type: String,
         typeLabel: '{underline Enum}'

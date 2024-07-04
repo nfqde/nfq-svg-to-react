@@ -2,6 +2,7 @@
 import {
     generateColorDefaultProps,
     generateColorDestructString,
+    generateColorDestructStringPre19,
     generateColorJsdocType,
     generateColorPropTypes,
     generateColorsDocs,
@@ -87,11 +88,42 @@ export const getTemplateData = (template: string, {file, HAST, svg}: DataOptions
                     search: /\{\{%width%\}\}/gu
                 },
                 {
+                    replace: generateColorDestructString(colors),
+                    search: /\{\{%colors%\}\}/gu
+                },
+                {
+                    replace: generateColorsDocs(colors),
+                    search: /\{\{%colorDocs%\}\}/gu
+                },
+                {
+                    replace: generateColorTypes(colors),
+                    search: /\{\{%colorTypes%\}\}/gu
+                }
+            ];
+        case 'typescript-pre19':
+            return [
+                {
+                    replace: getComponentName(file),
+                    search: /\{\{%name%\}\}/gu
+                },
+                {
+                    replace: replaceColors(svg, colors),
+                    search: /\{\{%svg%\}\}/gu
+                },
+                {
+                    replace: dimensions.height,
+                    search: /\{\{%height%\}\}/gu
+                },
+                {
+                    replace: dimensions.width,
+                    search: /\{\{%width%\}\}/gu
+                },
+                {
                     replace: generateColorDefaultProps(colors),
                     search: /\{\{%colorDefaultProps%\}\}/gu
                 },
                 {
-                    replace: generateColorDestructString(colors),
+                    replace: generateColorDestructStringPre19(colors),
                     search: /\{\{%colors%\}\}/gu
                 },
                 {

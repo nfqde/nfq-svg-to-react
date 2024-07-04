@@ -186,6 +186,22 @@ export const generateColorDestructString = (colors: Set<string>) => {
     let destructString = '';
 
     Array.from(colors).forEach((color, index) => {
+        destructString += `color${index + 1} = '${colorMap[color as keyof typeof colorMap] ? colorMap[color as keyof typeof colorMap] : color}', `;
+    });
+
+    return destructString;
+};
+
+/**
+ * Generate the color destruct string.
+ *
+ * @param colors The colors.
+ * @returns The color destruct string.
+ */
+export const generateColorDestructStringPre19 = (colors: Set<string>) => {
+    let destructString = '';
+
+    Array.from(colors).forEach((color, index) => {
         destructString += `color${index + 1}, `;
     });
 
