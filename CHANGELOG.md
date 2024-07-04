@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/nfqde/nfq-svg-to-react/compare/v2.1.2...v3.0.0) (2024-07-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* **Templates:** Default template has now no default props. Old default is now called typescript-pre19
+
+### Features
+
+* **Templates:** Update templates for React19 ([#18](https://github.com/nfqde/nfq-svg-to-react/issues/18)) ([a67e223](https://github.com/nfqde/nfq-svg-to-react/commit/a67e22393035db29300c384d6df49fc0ac6039f1))
+
 ### [2.1.2](https://github.com/nfqde/nfq-svg-to-react/compare/v2.1.1...v2.1.2) (2023-12-17)
 
 
