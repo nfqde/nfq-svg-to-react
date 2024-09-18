@@ -256,7 +256,7 @@ export const generateColorTypes = (colors: Set<string>) => {
     let types = '';
 
     Array.from(colors).forEach((color, index) => {
-        types += `\n    /**\n     * A string representing the color to be applied.\n     */\n    color${index + 1}?: string;`;
+        types += `\n    /**\n     * A string representing the color to be applied.\n     *\n     * @default '${colorMap[color as keyof typeof colorMap] ? colorMap[color as keyof typeof colorMap] : color}'\n     */\n    color${index + 1}?: string;`;
     });
 
     return types;
