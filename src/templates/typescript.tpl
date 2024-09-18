@@ -1,6 +1,10 @@
 /* eslint-disable max-len */
 import React from 'react';
 
+/**
+ * The `{{%name%}}Props` interface defines the shape of the properties object that is expected for this component.
+ * It outlines the required properties that needs to be provided when utilizing this component expecting an object of this type.
+ */
 interface {{%name%}}Props {
     /**
      * A string representing the CSS class to be applied to the {{%name%}}Icon element to override its default styling.
