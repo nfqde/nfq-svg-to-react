@@ -69,6 +69,13 @@ export const getTemplateData = (template: string, {file, HAST, svg}: DataOptions
                     search: /\{\{%colorsDocs%\}\}/gu
                 }
             ];
+        case 'story':
+            return [
+                {
+                    replace: getComponentName(file),
+                    search: /\{\{%name%\}\}/gu
+                }
+            ];
         case 'typescript':
             return [
                 {
