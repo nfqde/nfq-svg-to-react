@@ -8,7 +8,7 @@ import cleaner from 'rollup-plugin-cleaner';
 import copy from 'rollup-plugin-copy';
 
 // eslint-disable-next-line import/extensions
-import pkg from './package.json' assert { type: 'json' };
+import pkg from './package.json' with { type: 'json' };
 
 const globals = {};
 

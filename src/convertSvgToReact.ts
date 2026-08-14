@@ -81,14 +81,28 @@ const convertFile = async (file: string, out: string, template: string, template
         HAST,
         svg
     });
+    const storyData = getTemplateData('story', {
+        file,
+        HAST,
+        svg
+    });
+
+    let storyFile = await readFile(path.join(__dirname, 'templates/story.tpl'), 'utf-8');
     let svgComponent = template;
 
     templateData.forEach(({replace, search}) => {
         svgComponent = svgComponent.replace(search, replace);
     });
+    storyData.forEach(({replace, search}) => {
+        storyFile = storyFile.replace(search, replace);
+    });
 
     // eslint-disable-next-line security/detect-non-literal-fs-filename
     await writeFile(path.join(out, `${getComponentName(file)}.${templateType.includes('typescript') ? 't' : 'j'}sx`), svgComponent);
+
+    if (templateType.includes('typescript')) {
+        await writeFile(path.join(out, `${getComponentName(file)}.stories.tsx`), storyFile);
+    }
 
     const eslint = new ESLint({fix: true});
     const results = await eslint.lintFiles(path.join(out, `${getComponentName(file)}.${templateType.includes('typescript') ? 't' : 'j'}sx`));
